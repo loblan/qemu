@@ -2152,7 +2152,7 @@ static void sd_realize(DeviceState *dev, Error **errp)
         }
 
         blk_size = blk_getlength(sd->blk);
-        if (blk_size > 0 && !is_power_of_2(blk_size)) {
+        /* if (blk_size > 0 && !is_power_of_2(blk_size)) {
             int64_t blk_size_aligned = pow2ceil(blk_size);
             char *blk_size_str;
 
@@ -2171,7 +2171,7 @@ static void sd_realize(DeviceState *dev, Error **errp)
             g_free(blk_size_str);
 
             return;
-        }
+        } */
 
         ret = blk_set_perm(sd->blk, BLK_PERM_CONSISTENT_READ | BLK_PERM_WRITE,
                            BLK_PERM_ALL, errp);
